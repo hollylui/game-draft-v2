@@ -1,0 +1,91 @@
+.container {
+  background-color: #c2f5ff;
+  height: 100vh;
+  overflow: hidden;
+
+  //   message bubble and images ----------------
+  .position {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .messageImg {
+    width: 456px;
+    height: 500px;
+    position: relative;
+
+    .image {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+    }
+
+    .message {
+      position: absolute;
+      text-align: center;
+      font-size: 1.7rem;
+      margin: 0;
+      width: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -75%);
+    }
+
+    .volcanoImg {
+      width: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(80%, 135%);
+    }
+  }
+
+  //   buttons ------------------------------
+
+  button {
+    border: none;
+    border-radius: 20px;
+    font-size: 3rem;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-family: "Covered By Your Grace", cursive;
+  }
+
+  // grid for buttons -------------------------------
+  .gridContainter {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    font-family: "Covered By Your Grace", cursive;
+  }
+
+  .gridItem {
+    text-align: center;
+    width: 40%;
+    justify-self: center;
+  }
+
+  // start button -------------------------------
+  .startBtn {
+    background-color: #ffbb00;
+
+    &:hover {
+      background-color: #00ffdd;
+    }
+  }
+
+  // back button ------------------------------------
+  .backBtn {
+    background-color: #008000;
+    color: white;
+
+    &:hover {
+      background-color: rgb(119, 0, 255);
+    }
+  }
+}

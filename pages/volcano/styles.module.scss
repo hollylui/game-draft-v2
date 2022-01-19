@@ -1,0 +1,57 @@
+.containter {
+  height: 100vh;
+}
+
+.landingImage {
+  opacity: 0.9;
+}
+
+.landingText {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  button {
+    border: none;
+    border-radius: 20px;
+    font-size: 3rem;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-family: "Covered By Your Grace", cursive;
+  }
+}
+
+// grid for buttons -------------------------------
+.gridContainter {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 100px;
+  font-family: "Covered By Your Grace", cursive;
+}
+
+.gridItem {
+  text-align: center;
+  width: 40%;
+  justify-self: center;
+}
+
+// start button -------------------------------
+.startBtn {
+  background-color: green;
+
+  &:hover {
+    background-color: red;
+  }
+}
