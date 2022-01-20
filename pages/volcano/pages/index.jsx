@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Head from "next/head";
 
 import messageImg from "../../../assets/images/forAllGames/messageBubble.png";
@@ -21,11 +21,13 @@ export default function PageOne({ volcano }) {
     if (pageIndex === 2) {
       localStorage.setItem("age", age);
     }
+    localStorage.setItem("_id", volcano[pageIndex + 1]._id);
   };
 
   // back btn page handler
   const backBtnHandler = () => {
     setPageIndex(pageIndex - 1);
+    localStorage.setItem("_id", volcano[pageIndex - 1]._id);
   };
 
   const contentProps = {

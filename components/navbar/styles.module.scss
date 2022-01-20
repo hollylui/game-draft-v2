@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .musicController {
+    display: flex;
+
+    .musicContainer {
+      width: 80px;
+      margin: 0 30px;
+      cursor: pointer;
+    }
+
+    .pauseControl {
+      filter: grayscale(100%);
+    }
+
+    .volumeContainer {
+      width: 180px;
+      display: flex;
+      gap: 0 10px;
+      cursor: pointer;
+
+      .volumnDonw {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  .dropdown {
+    width: 80px;
+    position: relative;
+    margin: 0 30px;
+
+    .dropdownBtn {
+      border: none;
+    }
+
+    .dropdownContent {
+      display: none;
+
+      justify-content: space-between;
+      height: 180px;
+      width: 100px;
+      border-radius: 50px;
+      position: absolute;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      .item {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  .dropdown:hover .hidden {
+    display: block;
+  }
+}
