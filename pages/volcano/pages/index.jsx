@@ -1,56 +1,46 @@
 import { useContext } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-import messageImg from "../../../assets/images/forAllGames/messageBubble.png";
-import volcanoImg from "../../../assets/images/volcano/volcano_icon.png";
-import BackAndNextBtn from "../../../components/BackAndNextBtn";
-import GameContentMG from "../../../components/GameContentMG";
+import GameContentMG from "../../../components/gameContentMG/GameContentMG";
 import AppContext from "../../../context/AppContext";
 import clientPromise from "../../../lib/mongodb";
 import styles from "./styles.module.scss";
+import Navbar from "game-draft-v2/components/navbar/Navbar";
+import BackpackBtn from "game-draft-v2/components/backpackBtn/BackpackBtn";
 
 export default function PageOne({ volcano }) {
   const { pageIndex, setPageIndex, heroName, age } = useContext(AppContext);
+  const router = useRouter();
 
-  //   next btn page handler
+  //! handlers ---------------------------------------------------
   const nextBtnHandler = () => {
     setPageIndex(pageIndex + 1);
-    if (pageIndex === 1) {
-      localStorage.setItem("heroName", heroName);
-    }
-    if (pageIndex === 2) {
-      localStorage.setItem("age", age);
-    }
+    if (pageIndex === 1) localStorage.setItem("heroName", heroName);
+    if (pageIndex === 2) localStorage.setItem("age", age);
     localStorage.setItem("_id", volcano[pageIndex + 1]._id);
   };
 
-  // back btn page handler
   const backBtnHandler = () => {
     setPageIndex(pageIndex - 1);
     localStorage.setItem("_id", volcano[pageIndex - 1]._id);
   };
 
+  const volcanoHomeHandler = () => {
+    router.push("/volcano");
+  };
+
+  //! props -----------------------------------------------------
   const contentProps = {
-    styles,
-    messageImg,
-    volcanoImg,
     volcano,
   };
 
   const btnProps = {
     backBtnHandler,
     nextBtnHandler,
-    styles,
+    volcanoHomeHandler,
     volcano,
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("heroName", heroName);
-  // }, [heroName]);
-
-  // useEffect(() => {
-  //   localStorage.setItem("age", age);
-  // }, [age]);
 
   return (
     <div className={styles.container}>
@@ -60,10 +50,9 @@ export default function PageOne({ volcano }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar />
       <GameContentMG {...contentProps} />
-
-      {/* buttons */}
-      <BackAndNextBtn {...btnProps} />
+      <BackpackBtn {...btnProps} />
     </div>
   );
 }

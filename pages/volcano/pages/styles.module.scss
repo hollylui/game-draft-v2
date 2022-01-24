@@ -1,48 +1,9 @@
 .container {
   background-color: #c2f5ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
-  overflow: hidden;
-
-  //   message bubble and images ----------------
-  .position {
-    display: flex;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .messageImg {
-    width: 456px;
-    height: 500px;
-    position: relative;
-
-    .image {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -55%);
-    }
-
-    .message {
-      position: absolute;
-      text-align: center;
-      font-size: 1.7rem;
-      margin: 0;
-      width: 400px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -75%);
-    }
-
-    .volcanoImg {
-      width: 100px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(80%, 135%);
-    }
-  }
 
   //   buttons ------------------------------
 

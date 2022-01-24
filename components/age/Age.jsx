@@ -1,50 +1,64 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/AppContext";
 
 import styles from "./styles.module.scss";
 
-export default function NameForm() {
-  const { setAge } = useContext(AppContext);
+let buttons;
 
-  const ageHandler = (e) => {
-    setAge(e.target.innerText);
+export default function NameForm() {
+  const { age, setAge } = useContext(AppContext);
+
+  const ageHandler = async (e) => {
+    await setAge(e.target.innerText);
+
+    for (let button of buttons) {
+      if (button.innerText == age) {
+        button.classList.add(styles.active);
+      } else {
+        button.classList.remove(styles.active);
+      }
+    }
   };
 
+  useEffect(() => {
+    buttons = document.getElementsByTagName("button");
+  }, []);
+
   return (
-    <p>
+    <>
       <div>
-        <span onClick={ageHandler} className={styles.span}>
+        <button onClick={ageHandler} className={styles.button}>
           1
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           2
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           3
-        </span>
+        </button>
       </div>
       <div>
-        <span onClick={ageHandler} className={styles.span}>
+        <button onClick={ageHandler} className={styles.button}>
           4
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           5
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           6
-        </span>
+        </button>
       </div>
       <div>
-        <span onClick={ageHandler} className={styles.span}>
+        <button onClick={ageHandler} className={styles.button}>
           7
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           8
-        </span>
-        <span onClick={ageHandler} className={styles.span}>
+        </button>
+        <button onClick={ageHandler} className={styles.button}>
           9+
-        </span>
+        </button>
       </div>
-    </p>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useContext } from "react";
 
 import AppContext from "../context/AppContext";
@@ -9,6 +10,7 @@ export default function BackAndNextBtn({
   volcano,
 }) {
   const { pageIndex } = useContext(AppContext);
+  const router = useRouter();
   return (
     <div className={styles.gridContainter}>
       {pageIndex !== 0 ? (

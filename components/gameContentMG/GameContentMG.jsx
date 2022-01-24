@@ -2,16 +2,14 @@ import Image from "next/image";
 
 import { useContext } from "react";
 
-import AppContext from "../context/AppContext";
-import NameForm from "./nameForm/NameForm";
-import Age from "./age/Age";
+import AppContext from "../../context/AppContext";
+import NameForm from "../nameForm/NameForm";
+import Age from "../age/Age";
+import messageImg from "../../assets/images/forAllGames/Large_speech_box.png";
+import volcanoImg from "../../assets/images/volcano/volcano_icon.png";
+import styles from "./styles.module.scss";
 
-export default function GameContent({
-  styles,
-  messageImg,
-  volcanoImg,
-  volcano,
-}) {
+export default function GameContent({ volcano }) {
   const { pageIndex, heroName } = useContext(AppContext);
   const message = volcano[pageIndex].message;
 
